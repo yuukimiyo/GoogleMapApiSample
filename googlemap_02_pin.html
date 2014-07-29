@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>GoogleMapAPIで地図上にピンを配置する</title>
+</head>
+<body>
+
+<h1>GoogleMapAPIで地図上にピンを配置する</h1>
+
+<!-- Map表示用エレメント -->
+<div id="map" style="width:800px;height:600px;"></div>
+
+<!-- GoogleMapAPIを読み込む -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3&language=ja"></script>
+<script>
+
+// Google Mapを初期化してエレメントに適用
+// 緯度経度は例えばこちらのページを参考（http://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.php）
+var map = new google.maps.Map(document.getElementById('map'), {
+	center: { lat:35.681382, lng:139.766084 },
+	zoom: 9
+});
+
+// 表示させるピン用のデータ
+// 例えばこちらのページなどを参考に作成（http://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.php）
+var data = new Array(
+	{ position:{ lat:35.681382, lng:139.766084 }, content:'東京駅' },
+	{ position:{ lat:35.690921, lng:139.700258 }, content:'新宿駅' }
+);
+
+// データ内をループしてピンを設置＆吹き出しの設定
+for (i = 0; i < data.length; i++) {
+
+	// ピンを設置
+	var marker = new google.maps.Marker({
+		position: data[i].position,
+		map: map
+	});
+	
+	// 吹き出しを作成
+	(function (marker, content) {
+		google.maps.event.addListener(marker, 'click', function(event) {
+			new google.maps.InfoWindow({ content: content }).open(marker.getMap(), marker);
+		});
+	}) (marker, data[i].content);
+}
+
+</script>
+
+</body>
+</html>

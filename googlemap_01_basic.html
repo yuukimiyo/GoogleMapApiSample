@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>GoogleMapAPIで地図を表示する</title>
+</head>
+<body>
+
+<h1>GoogleMapAPIで地図を表示する</h1>
+
+<!-- Map表示用エレメント -->
+<div id="map" style="width:800px;height:600px;"></div>
+
+<!-- GoogleMapAPIを読み込む -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3&language=ja"></script>
+<script>
+// Google Mapを初期化してエレメントに適用
+var map = new google.maps.Map(document.getElementById('map'), {
+	center: { lat: 35.80, lng: 137.40 },
+	zoom: 7
+});
+</script>
+
+</body>
+</html>
