@@ -1,33 +1,32 @@
 <html>
 <head>
-<meta charset="UTF-8">
-<title>GoogleMapAPIã§åœ°å›³ä¸Šã«å††ã‚’é…ç½®ã™ã‚‹</title>
+<title>GoogleMapAPI‚Å’n}ã‚É‰~‚ğ”z’u‚·‚é</title>
 </head>
 <body>
 
-<h1>GoogleMapAPIã§åœ°å›³ä¸Šã«å††ã‚’é…ç½®ã™ã‚‹</h1>
+<h1>GoogleMapAPI‚Å’n}ã‚É‰~‚ğ”z’u‚·‚é</h1>
 
-<!-- Mapè¡¨ç¤ºç”¨ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆ -->
+<!-- Map•\¦—pƒGƒŒƒƒ“ƒg -->
 <div id="map" style="width:800px;height:600px;"></div>
 
-<!-- GoogleMapAPIã‚’èª­ã¿è¾¼ã‚€ -->
+<!-- GoogleMapAPI‚ğ“Ç‚İ‚Ş -->
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3&language=ja"></script>
 <script>
 
-// Google Mapã‚’åˆæœŸåŒ–ã—ã¦ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã«é©ç”¨
-// ç·¯åº¦çµŒåº¦ã¯ä¾‹ãˆã°ã“ã¡ã‚‰ã®ãƒšãƒ¼ã‚¸ã‚’å‚è€ƒï¼ˆhttp://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.phpï¼‰
+// Google Map‚ğ‰Šú‰»‚µ‚ÄƒGƒŒƒƒ“ƒg‚É“K—p
+// ˆÜ“xŒo“x‚Í—á‚¦‚Î‚±‚¿‚ç‚Ìƒy[ƒW‚ğQlihttp://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.phpj
 var map = new google.maps.Map(document.getElementById('map'), {
 	center: { lat:35.681382, lng:139.766084 },
 	zoom: 11
 });
 
-// è¡¨ç¤ºã•ã›ã‚‹ãƒ”ãƒ³ç”¨ã®ãƒ‡ãƒ¼ã‚¿
+// •\¦‚³‚¹‚éƒsƒ“—p‚Ìƒf[ƒ^
 var data = new Array(
-	{ position:{ lat:35.681382, lng:139.766084 }, content:'æ±äº¬é§…', size:'20' },
-	{ position:{ lat:35.690921, lng:139.700258 }, content:'æ–°å®¿é§…', size:'15' }
+	{ position:{ lat:35.681382, lng:139.766084 }, content:'“Œ‹‰w', size:'20' },
+	{ position:{ lat:35.690921, lng:139.700258 }, content:'Vh‰w', size:'15' }
 );
 
-// ãƒ”ãƒ³ã®å½¢çŠ¶ä½œæˆé–¢æ•°ï¼ˆãƒ”ãƒ³ã‚’ä¸¸ã«ï¼‰
+// ƒsƒ“‚ÌŒ`óì¬ŠÖ”iƒsƒ“‚ğŠÛ‚Éj
 function makeMarkerStyle(size) {
 	return {
 		path: google.maps.SymbolPath.CIRCLE,
@@ -40,18 +39,18 @@ function makeMarkerStyle(size) {
 	}
 }
 
-// ãƒ‡ãƒ¼ã‚¿å†…ã‚’ãƒ«ãƒ¼ãƒ—ã—ã¦ãƒ”ãƒ³ã‚’è¨­ç½®ï¼†å¹ãå‡ºã—ã®è¨­å®š
+// ƒf[ƒ^“à‚ğƒ‹[ƒv‚µ‚Äƒsƒ“‚ğİ’u•‚«o‚µ‚Ìİ’è
 for (i = 0; i < data.length; i++) {
 	
-	// ãƒ”ãƒ³ã‚’è¨­ç½®
-	// makeMarkerStyle()ã§ã‚µã‚¤ã‚ºã‚’æŒ‡å®šã—ã¦ã‚¹ã‚¿ã‚¤ãƒ«ã‚’å–å¾—
+	// ƒsƒ“‚ğİ’u
+	// makeMarkerStyle()‚ÅƒTƒCƒY‚ğw’è‚µ‚ÄƒXƒ^ƒCƒ‹‚ğæ“¾
 	var marker = new google.maps.Marker({
 		position: data[i].position,
 		icon: makeMarkerStyle(data[i].size),
 		map: map
 	});
 	
-	// å¹ãå‡ºã—ã‚’ä½œæˆ
+	// ‚«o‚µ‚ğì¬
 	(function (marker, content) {
 		google.maps.event.addListener(marker, 'click', function(event) {
 			new google.maps.InfoWindow({ content: content }).open(marker.getMap(), marker);

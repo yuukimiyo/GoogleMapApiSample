@@ -1,43 +1,42 @@
 <html>
 <head>
-<meta charset="UTF-8">
-<title>GoogleMapAPIã§åœ°å›³ä¸Šã«ãƒ”ãƒ³ã‚’é…ç½®ã™ã‚‹</title>
+<title>GoogleMapAPI‚Å’n}ã‚Éƒsƒ“‚ğ”z’u‚·‚é</title>
 </head>
 <body>
 
-<h1>GoogleMapAPIã§åœ°å›³ä¸Šã«ãƒ”ãƒ³ã‚’é…ç½®ã™ã‚‹</h1>
+<h1>GoogleMapAPI‚Å’n}ã‚Éƒsƒ“‚ğ”z’u‚·‚é</h1>
 
-<!-- Mapè¡¨ç¤ºç”¨ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆ -->
+<!-- Map•\¦—pƒGƒŒƒƒ“ƒg -->
 <div id="map" style="width:800px;height:600px;"></div>
 
-<!-- GoogleMapAPIã‚’èª­ã¿è¾¼ã‚€ -->
+<!-- GoogleMapAPI‚ğ“Ç‚İ‚Ş -->
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3&language=ja"></script>
 <script>
 
-// Google Mapã‚’åˆæœŸåŒ–ã—ã¦ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã«é©ç”¨
-// ç·¯åº¦çµŒåº¦ã¯ä¾‹ãˆã°ã“ã¡ã‚‰ã®ãƒšãƒ¼ã‚¸ã‚’å‚è€ƒï¼ˆhttp://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.phpï¼‰
+// Google Map‚ğ‰Šú‰»‚µ‚ÄƒGƒŒƒƒ“ƒg‚É“K—p
+// ˆÜ“xŒo“x‚Í—á‚¦‚Î‚±‚¿‚ç‚Ìƒy[ƒW‚ğQlihttp://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.phpj
 var map = new google.maps.Map(document.getElementById('map'), {
 	center: { lat:35.681382, lng:139.766084 },
 	zoom: 9
 });
 
-// è¡¨ç¤ºã•ã›ã‚‹ãƒ”ãƒ³ç”¨ã®ãƒ‡ãƒ¼ã‚¿
-// ä¾‹ãˆã°ã“ã¡ã‚‰ã®ãƒšãƒ¼ã‚¸ãªã©ã‚’å‚è€ƒã«ä½œæˆï¼ˆhttp://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.phpï¼‰
+// •\¦‚³‚¹‚éƒsƒ“—p‚Ìƒf[ƒ^
+// —á‚¦‚Î‚±‚¿‚ç‚Ìƒy[ƒW‚È‚Ç‚ğQl‚Éì¬ihttp://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.phpj
 var data = new Array(
-	{ position:{ lat:35.681382, lng:139.766084 }, content:'æ±äº¬é§…' },
-	{ position:{ lat:35.690921, lng:139.700258 }, content:'æ–°å®¿é§…' }
+	{ position:{ lat:35.681382, lng:139.766084 }, content:'“Œ‹‰w' },
+	{ position:{ lat:35.690921, lng:139.700258 }, content:'Vh‰w' }
 );
 
-// ãƒ‡ãƒ¼ã‚¿å†…ã‚’ãƒ«ãƒ¼ãƒ—ã—ã¦ãƒ”ãƒ³ã‚’è¨­ç½®ï¼†å¹ãå‡ºã—ã®è¨­å®š
+// ƒf[ƒ^“à‚ğƒ‹[ƒv‚µ‚Äƒsƒ“‚ğİ’u•‚«o‚µ‚Ìİ’è
 for (i = 0; i < data.length; i++) {
 
-	// ãƒ”ãƒ³ã‚’è¨­ç½®
+	// ƒsƒ“‚ğİ’u
 	var marker = new google.maps.Marker({
 		position: data[i].position,
 		map: map
 	});
 	
-	// å¹ãå‡ºã—ã‚’ä½œæˆ
+	// ‚«o‚µ‚ğì¬
 	(function (marker, content) {
 		google.maps.event.addListener(marker, 'click', function(event) {
 			new google.maps.InfoWindow({ content: content }).open(marker.getMap(), marker);
