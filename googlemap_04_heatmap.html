@@ -1,51 +1,51 @@
 <html>
 <head>
-<title>GoogleMapAPI‚Å’n}ã‚Éƒq[ƒgƒ}ƒbƒv‚ğ”z’u‚·‚é</title>
+<title>GoogleMapAPIã§åœ°å›³ä¸Šã«ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ã‚’é…ç½®ã™ã‚‹</title>
 </head>
 <body>
 
-<h1>GoogleMapAPI‚Å’n}ã‚Éƒq[ƒgƒ}ƒbƒv‚ğ”z’u‚·‚é</h1>
+<h1>GoogleMapAPIã§åœ°å›³ä¸Šã«ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ã‚’é…ç½®ã™ã‚‹</h1>
 
-<!-- Map•\¦—pƒGƒŒƒƒ“ƒg -->
+<!-- Mapè¡¨ç¤ºç”¨ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆ -->
 <div id="map" style="width:800px;height:600px;"></div>
 
-<!-- GoogleMapAPI‚ğ“Ç‚İ‚Ş -->
-<!-- ƒq[ƒgƒ}ƒbƒv‚ğˆµ‚¤‚½‚ß‚É[libraries=visualization]‚ª’Ç‰Á‚³‚ê‚Ä‚¢‚é“_‚É’ˆÓ -->
+<!-- GoogleMapAPIã‚’èª­ã¿è¾¼ã‚€ -->
+<!-- ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ã‚’æ‰±ã†ãŸã‚ã«[libraries=visualization]ãŒè¿½åŠ ã•ã‚Œã¦ã„ã‚‹ç‚¹ã«æ³¨æ„ -->
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&v=3&language=ja&libraries=visualization"></script>
 <script>
 
-// Google Map‚ğ‰Šú‰»‚µ‚ÄƒGƒŒƒƒ“ƒg‚É“K—p
-// ˆÜ“xŒo“x‚Í—á‚¦‚Î‚±‚¿‚ç‚Ìƒy[ƒW‚ğQlihttp://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.phpj
+// Google Mapã‚’åˆæœŸåŒ–ã—ã¦ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã«é©ç”¨
+// ç·¯åº¦çµŒåº¦ã¯ä¾‹ãˆã°ã“ã¡ã‚‰ã®ãƒšãƒ¼ã‚¸ã‚’å‚è€ƒï¼ˆhttp://imakoko.didit.jp/imakoko_html/memo/map_to_latlang.phpï¼‰
 var map = new google.maps.Map(document.getElementById('map'), {
 	center: { lat:35.681382, lng:139.766084 },
 	zoom: 11
 });
 
-// •\¦‚³‚¹‚éƒf[ƒ^iƒsƒ“—p‚Æ“¯‚¶j
+// è¡¨ç¤ºã•ã›ã‚‹ãƒ‡ãƒ¼ã‚¿ï¼ˆãƒ”ãƒ³ç”¨ã¨åŒã˜ï¼‰
 var data = new Array(
-	{ position:{ lat:35.681382, lng:139.766084 }, content:'“Œ‹‰w', size:'30' },
-	{ position:{ lat:35.690921, lng:139.700258 }, content:'Vh‰w', size:'15' }
+	{ position:{ lat:35.681382, lng:139.766084 }, content:'æ±äº¬é§…', size:'30' },
+	{ position:{ lat:35.690921, lng:139.700258 }, content:'æ–°å®¿é§…', size:'15' }
 );
 
-//ƒq[ƒgƒ}ƒbƒv—p‚Ìƒf[ƒ^‚Ìì¬
+//ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ç”¨ã®ãƒ‡ãƒ¼ã‚¿ã®ä½œæˆ
 var  pos, heatmapData = [];
 for (var i=0; i < data.length; i++) {
 	heatmapData.push({
 		location : new google.maps.LatLng(data[i].position.lat, data[i].position.lng),
-		weight : data[i].size //ƒq[ƒgƒ}ƒbƒv‚Ìd‚İ•t‚¯‚Ég—p‚·‚éƒf[ƒ^‚ğw’è
+		weight : data[i].size //ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ã®é‡ã¿ä»˜ã‘ã«ä½¿ç”¨ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’æŒ‡å®š
 	});
 }
 
-//ƒq[ƒgƒ}ƒbƒvƒŒƒCƒ„ƒIƒuƒWƒFƒNƒg‚ğì¬
+//ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ãƒ¬ã‚¤ãƒ¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ
 var heatmap = new google.maps.visualization.HeatmapLayer({
 	radius:30,
 	opacity:0.95
 }); 
 
-// ƒq[ƒgƒ}ƒbƒvƒŒƒCƒ„‚Éƒq[ƒgƒ}ƒbƒvƒf[ƒ^‚ğ“K—p
+// ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ãƒ¬ã‚¤ãƒ¤ã«ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿ã‚’é©ç”¨
 heatmap.setData(heatmapData);
 
-// ƒq[ƒgƒ}ƒbƒvƒŒƒCƒ„‚ğMapƒIƒuƒWƒFƒNƒg‚É•R•t‚¯‚ÄMapã‚É•\¦
+// ãƒ’ãƒ¼ãƒˆãƒãƒƒãƒ—ãƒ¬ã‚¤ãƒ¤ã‚’Mapã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ç´ä»˜ã‘ã¦Mapä¸Šã«è¡¨ç¤º
 heatmap.setMap(map);
 
 </script>
